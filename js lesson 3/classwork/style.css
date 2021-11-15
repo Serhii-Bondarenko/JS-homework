@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    margin-top: 50px;
+    background-color: aliceblue;
+}
+
+.product-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 40%;
+    border: 1px solid grey;
+    margin: 10px;
+    text-decoration: none;
+    background-color: lightcyan
+}
