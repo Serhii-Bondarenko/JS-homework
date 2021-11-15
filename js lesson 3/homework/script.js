@@ -5,7 +5,7 @@
 // - та вивести його в консоль
 let numArray = [1, 2, 3, 4, 5];
 let strArray = ['a', 'b', 'c', 'd', 'k'];
-let mixArray = ['str', 'number', 100, true, 4 > 5 ];
+let mixArray = ['str', NaN, 100, true, 4 > 5 ];
 console.log(numArray);
 console.log(strArray);
 console.log(mixArray);
@@ -15,7 +15,7 @@ let emptyArray = [];
 emptyArray[0] = [1, '2', 3===0];
 emptyArray[1] = 'name';
 emptyArray[2] = 23;
-emptyArray[3] = NaN;
+emptyArray[3] = null;
 console.log(emptyArray);
 console.log(emptyArray[0]);
 console.log(emptyArray[1]);
@@ -34,15 +34,15 @@ for (let i = 1; i <= 10; i++){
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом всередині.
-let i = 0;
-while (i < 10){
+let i = 1;
+while (i <= 20){
     document.write('<h2>Lorem ipsum dolor sit amet.</h2>')
     i++;
 }
 
 // - За допомогою циклу while вивести в документ 20 блоків h1 c довільним текстом і індексом всередині.
-let p = 0;
-while (p < 10){
+let p = 1;
+while (p <= 20){
     document.write(`<h2>Я блок з циклу "while" за номером ${p}</h2>`)
     p++;
 }
@@ -71,7 +71,7 @@ while (p < strArr.length){
 document.write('<br>');
 // - Створити масив з 10 елементів будь-якого типу. Вивести в консоль всі його елементи в циклі.
 
-mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, '', 0];
+mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, '', null];
 for (i = 0; i < mixArray.length; i++){
     console.log(mixArray[i]);
 }
@@ -83,7 +83,7 @@ while (p < mixArray.length){
 document.write('<br>');
 // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки булеві елементи
 
-mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', 0];
+mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', null];
 
 for (i = 0; i < mixArray.length; i++){
     if (typeof mixArray[i] === 'boolean') {
@@ -100,7 +100,7 @@ while (p < mixArray.length){
 document.write('<br>');
 
 // - Створити масив з 10 елементів числового, стірчкового і булевого типу. За допомогою if та typeof вивести тільки числові елементи
-mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', 0];
+mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', null];
 for (i = 0; i < mixArray.length; i++){
     if (typeof mixArray[i] === 'number') {
         console.log(mixArray[i]);
@@ -116,7 +116,7 @@ while (p < mixArray.length){
 document.write('<br>');
 
 // - Створити масив з 10 елементів числового, стрічкового і булевого типу. За допомогою if та typeof вивести тільки рядкові елементи
-mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', 0];
+mixArray = ['str', 'number', 100, true, 4 > 5, undefined, NaN, -2, !!'', null];
 for (i = 0; i < mixArray.length; i++){
     if (typeof mixArray[i] === 'string') {
         console.log(mixArray[i]);
@@ -143,7 +143,7 @@ emp[5] = '';
 emp[6] = 0;
 emp[7] = 1 > 0;
 emp[8] = 2*2 === 5;
-emp[9] = 'error';
+emp[9] = null;
 for (let i = 0; i < emp.length; i++){
     console.log(emp[i]);
 }
