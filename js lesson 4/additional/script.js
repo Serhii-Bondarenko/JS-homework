@@ -3,17 +3,20 @@ console.log('створити функцію, яка якщо приймає о�
 
 function couple() {
     let out = '';
-    for (let i = 0; i < arguments.length; i++) {
-        if (arguments.length > 1) {
-            out += arguments[i];
-        } else {
-            out = arguments[0];
+    let sum = 0;
+    for (const argument of arguments) {
+        if (typeof argument === 'number') {
+            out = sum += argument;
+        } else if (typeof argument === 'string'){
+            out += argument + " ";
+        }else {
+            out = 'Спробуйте числа, або слова'
         }
     }
     return out;
 }
 
-let result = couple(4, 5, 6, 6);
+let result = couple('я', 'люблю', 'okten');
 console.log(result);
 console.log('==================');
 
@@ -24,6 +27,7 @@ console.log('==================');
 // результат
 //     [3,5,7,9]
 console.log('створити функцію  яка приймає два масиви та скаладає значення елементів з однаковими індексами  та повертає новий результуючий масив');
+
 let arr1 = [1, 2, 3, 4];
 let arr2 = [2, 3, 4, 5];
 
@@ -65,6 +69,7 @@ let users = [
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
 console.log('Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів');
+
 function keysArray(array) {
     let keyArr = [];
     for (const arrElement of array) {
@@ -92,7 +97,7 @@ let boys = [
     {model: 'Camry'}
 ];
 
-function valueArray(array){
+function valueArray(array) {
     let valueArr = [];
     for (const arrElement of array) {
         if (typeof arrElement === 'object') {
