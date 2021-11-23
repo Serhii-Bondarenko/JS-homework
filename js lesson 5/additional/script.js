@@ -19,7 +19,7 @@ let numWay = (a, b) => {
         for (let i = a; i <= b; i++) {
             document.write(i + " ");
         }
-    }else {
+    } else {
         for (let i = a; i >= b; i--) {
             document.write(i + " ");
         }
@@ -39,9 +39,9 @@ document.write(`<h5>функція Приймає масив та число "i"
 let elementChange = (array, i) => {
     let index = array[i];
     for (let j = 0; j < array.length; j++) {
-        if (index === array[j] ) {
-           array[j] = array[i+1];
-           array[i+1] = index;
+        if (index === array[j]) {
+            array[j] = array[i + 1];
+            array[i + 1] = index;
         }
     }
     return array;
@@ -62,9 +62,13 @@ let zeroDown = (array) => {
     let zeroArr = [];
     let numArr = [];
     for (let i = 0; i < array.length; i++) {
-        array[i] === 0 ?  zeroArr[zeroArr.length] = array[i] : numArr[numArr.length] = array[i];
+        array[i] === 0 ? zeroArr[zeroArr.length] = array[i] : numArr[numArr.length] = array[i];
     }
-    return numArr.concat(zeroArr);
+    for (let i = 0; i < zeroArr.length; i++) {
+        numArr[numArr.length] = zeroArr[i];
+    }
+    array = numArr;
+    return array;
 }
 
 document.write(zeroDown([0,0,1,0]));
@@ -72,19 +76,19 @@ document.write(zeroDown([0,0,1,0]));
 // функція приймає години , хвилини, секунди
 document.write('<hr>');
 document.write(`<h5>ДОДАТКОВЕ ЗАВДАННЯ ГОДИННИК</h5>`);
-// document.write('<ul>');
-let clock = (hours, min, sec) => {
-    if (hours <= 24 && min <= 60 && sec <= 60) {
-        for (let i = 0; i <= hours; i++) {
-            for (let j = 0; j <= min; j++) {
-                for (let k = 0; k <= sec; k++) {
-                    document.write(`<div>${i} : ${j} : ${k}</div>`);
+
+let clock = (hour) => {
+    if (hour <= 24) {
+        for (let i = 0; i < hour; i++) {
+            for (let min = 0; min < 60; min++) {
+                for (let sec = 0; sec < 60; sec++) {
+                    document.write(`<div>${i} : ${min} : ${sec}</div>`);
                 }
             }
         }
     }else {
-        document.write(`<div>Доба містить 24 години, година має 60 хвилин, хвилина має 60 секунд</div>`);
+        document.write(`<div>Доба містить 24 години</div>`);
     }
 }
-// document.write(`</ul>`);
-clock(+prompt('Година'), +prompt('Хвилина'),  +prompt('Секунда'));
+
+clock(1);
