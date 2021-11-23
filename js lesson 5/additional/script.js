@@ -62,11 +62,29 @@ let zeroDown = (array) => {
     let zeroArr = [];
     let numArr = [];
     for (let i = 0; i < array.length; i++) {
-        array[i] === 0 ?  zeroArr.push(array[i]) : numArr.push(array[i]);
+        array[i] === 0 ?  zeroArr[zeroArr.length] = array[i] : numArr[numArr.length] = array[i];
     }
     return numArr.concat(zeroArr);
 }
 
-document.write(zeroDown([1,0,0,0]));
+document.write(zeroDown([0,0,1,0]));
 
 // функція приймає години , хвилини, секунди
+document.write('<hr>');
+document.write(`<h5>ДОДАТКОВЕ ЗАВДАННЯ ГОДИННИК</h5>`);
+// document.write('<ul>');
+let clock = (hours, min, sec) => {
+    if (hours <= 24 && min <= 60 && sec <= 60) {
+        for (let i = 0; i <= hours; i++) {
+            for (let j = 0; j <= min; j++) {
+                for (let k = 0; k <= sec; k++) {
+                    document.write(`<div>${i} : ${j} : ${k}</div>`);
+                }
+            }
+        }
+    }else {
+        document.write(`<div>Доба містить 24 години, година має 60 хвилин, хвилина має 60 секунд</div>`);
+    }
+}
+// document.write(`</ul>`);
+clock(+prompt('Година'), +prompt('Хвилина'),  +prompt('Секунда'));
