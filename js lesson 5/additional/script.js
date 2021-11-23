@@ -59,16 +59,14 @@ document.write('<hr>');
 document.write(`<h5>Сворити функцію яка буде переносити елементи з значенням 0 у кінець маисву. Зберігаючи при цьому порядок не нульових значень.</h5>`);
 
 let zeroDown = (array) => {
-    let startLenth = array.length;
-    for (let i = 0; i < startLenth; i++) {
-        if (array[i] === 0) {
-            array[array.length] = 0;
-            array.splice(i, 1);
-            startLenth--;
-            i--;
-        }
+    let zeroArr = [];
+    let numArr = [];
+    for (let i = 0; i < array.length; i++) {
+        array[i] === 0 ?  zeroArr.push(array[i]) : numArr.push(array[i]);
     }
-    return array;
+    return numArr.concat(zeroArr);
 }
 
-document.write(zeroDown([0,0,1,0]));
+document.write(zeroDown([1,0,0,0]));
+
+// функція приймає години , хвилини, секунди
