@@ -71,7 +71,7 @@ let zeroDown = (array) => {
     return array;
 }
 
-document.write(zeroDown([0,0,1,0]));
+document.write(zeroDown([1,0,6,0,3,5,0,7]));
 
 // функція приймає години , хвилини, секунди
 document.write('<hr>');
