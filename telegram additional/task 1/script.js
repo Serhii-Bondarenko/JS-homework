@@ -3,13 +3,18 @@
 //     При решении этой задачи нельзя использовать строки,
 //     массивы ну и циклы
 // Вам поможет Рекурсія)
-function sumNumber(num){
-    num = `${num}`;
-    if(num.length == 1) return +num;
-    return +num[0] + sumNumber(num.slice(1));
+
+function sumDigits(num) {
+    if (num == 0) {
+        return 0; // виходимо з циклу
+    } else {
+        let lastDigit = num % 10; // отримуємо останню цифру
+        let newNum = Math.floor(num / 10);//отримуємо нове число без останньої цифри
+        return lastDigit + sumDigits(newNum);// перебираємо до 0 та повертаємо сумму
+    }
 }
 
-console.log( sumNumber(1) );
+console.log(sumDigits(1234));
 
 // пример:
 //     1234 -> 10
