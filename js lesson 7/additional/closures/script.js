@@ -118,22 +118,34 @@ class UserAccount {
     }
 }
 
-const user = new UserAccount('Bob');
-console.log(user);
+const userOleg = new UserAccount('Oleg');
+const userBob = new UserAccount('Bob');
+console.log(userBob);
+console.log(userOleg);
 
-user.addCard(1);
-user.addCard(2);
-user.addCard(3);
+userBob.addCard(1);
+userBob.addCard(2);
+userBob.addCard(3);
 
-let userCard11 = user.getCardByKey(1);
-let userCard22 = user.getCardByKey(2);
+userOleg.addCard(1);
+userOleg.addCard(2);
+userOleg.addCard(3);
 
-userCard11.getCardOptions();
-userCard11.putCredits(500);
-userCard11.transferCredits(90, userCard22);
+let bobCard1 = userBob.getCardByKey(1);
+let bobCard2 = userBob.getCardByKey(2);
+let olegCard1 = userOleg.getCardByKey(1);
+let olegCard2 = userOleg.getCardByKey(2);
+
+bobCard1.getCardOptions();
+bobCard1.putCredits(500);
+bobCard1.transferCredits(90, bobCard2);
 
 console.log('----------------------------');
 
-userCard22.getCardOptions();
-userCard22.takeCredits(50);
+bobCard2.takeCredits(40);
 
+console.log('Боб скинув Олегу 40 грн. на штани');
+bobCard2.getCardOptions();
+bobCard2.transferCredits(40, olegCard1)
+
+olegCard1.getCardOptions();
