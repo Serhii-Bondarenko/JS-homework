@@ -3,23 +3,22 @@
 // debugger
 function reCall(startElement) {
     let classNames = [];
-    for (const el of startElement.children) {
-        for (const className of el.classList) {
+    for (let element of startElement) {
+        for (const className of element.classList) {
             classNames.push(className);
         }
-        if (el.children.length) {
-            reCall(el);
+        if (element.children) {
+            classNames.push(...reCall(element.children));
         }
     }
-    classNames.length ? console.log(classNames) : false;
-
+    return classNames;
 }
 
-reCall(document.body);
+console.log(reCall(document.body.children));
 
-let array = [1, 2, 3, [11, 12, 13, [24, 25, 26], [37, 38, 39,[40, 41, 42, 43], [55, 65, 75, [85, 95]]]]];
+let array = [1, 2, 3, [11, 12, 13, [24, 25, 26], [37, 38, 39, [40, 41, 42, 43], [55, 65, 75, [85, 95]]]]];
 
-function funcRec(arr){
+function funcRec(arr) {
     let out = [];
     for (const item of arr) {
         if (typeof item === 'object') {
