@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .father__div {
+            width: 300px;
+            height: 200px;
+        }
+
+        .item {
+            width: 250px;
+            height: 50px;
+        }
+
+        .popup {
+            border: 1px solid blue;
+            opacity: 50%;
+            color: white;
+            font-weight: bolder;
+            background-color: black;
+            width: 200px;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            z-index: 99;
+        }
+
+        .popup:after {
+            content: '\f00d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 600;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            pointer-events: none;
+        }
+
+        .slider__box {
+            position: relative;
+            background-color: azure;
+        }
+
+        .slider {
+            width: 250px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        .slider__box button {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        .btn__next {
+            right: 37%;
+        }
+
+        .btn__prev {
+            left: 37%;
+        }
+
+        .slider__track {
+            display: flex;
+            position: relative;
+            left: 0;
+            transition: 1s;
+            width: 750px;
+            height: 200px;
+            background-color: silver;
+        }
+
+        .slider__item > img {
+            width: 250px;
+            height: 200px;
+        }
+        .demo{
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+        .demo p, .demo form{
+            flex: 1 1 100%;
+        }
+        .demo > div {
+            margin: 0 auto;
+            flex: 0 1 12%;
+        }
+        .user__item{
+            border: 1px solid darkslategrey;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: floralwhite;
+        }
+        #formFilter{
+            margin: 30px;
+        }
+        #formFilter input{
+            margin-right: 20px;
+        }
+        .btn1{
+            padding: 10px;
+            background-color: darkslategrey;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="demo">
+    <p>Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как
+        вместе так и по отдельности</p>
+    <form action="/filter" id = 'formFilter'>
+        <label for="in1">Статус: false</label>
+        <input type="checkbox" id='in1' name="status">
+        <label for="in2">Вік > 29 років</label>
+        <input type="checkbox" id='in2' name="age">
+        <label for="in3">Місто: Київ</label>
+        <input type="checkbox" id='in3' name="city">
+        <button>Search</button>
+    </form>
+</div>
+
+<hr>
+
+<script src="https://kit.fontawesome.com/0df36b7ac6.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
