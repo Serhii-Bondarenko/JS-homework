@@ -170,49 +170,6 @@ formFilter.onsubmit = function (e) {
     })
 }
 
-// *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в боди 2 кнопки (назад/вперед)
-// при нажатии вперед, вы переходите к дочернему элементу, при еще одном нажатии на "вперед", вы переходите к следующему дочернему элементу (лежащему на одном уровне)
-// НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
-//     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
-
-let a = document.querySelector('.main__div');
-// ПОКИ НЕ ПІДДАЄТЬСЯ МОЄМУ НАПОРУ)
-// function rec(domElement) {
-//     if (document.querySelectorAll('.btn1').length === 0) {
-//         let btnPrev = document.createElement('button');
-//         btnPrev.classList.add('btn1');
-//         btnPrev.innerText = 'Назад';
-//         let btnNext = document.createElement('button');
-//         btnNext.innerText = 'Вперед';
-//         btnNext.classList.add('btn1');
-//         document.body.appendChild(btnNext);
-//         document.body.appendChild(btnPrev);
-//
-//         let next = true;
-//
-//         let step = (list) => {
-//             let element = list[0];
-//             if (next) {
-//                 while (element.firstElementChild) {
-//                     element = у
-//                 }
-//             }else{
-//
-//             }
-//
-//
-//             btnNext.addEventListener('click', function (e){
-//             })
-//         }
-//         step(domElement.children);
-//     }
-// }
-//
-
-// rec(a);
-// //
-
-
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
 let sliderBox = document.createElement('div');
@@ -274,7 +231,7 @@ btnPrev.addEventListener('click', () => {
     carousel();
 });
 
-btnNext.addEventListener('click', ()=>{
+btnNext.addEventListener('click', () => {
     current + 1 === images.length ? current = 0 : current++;
     carousel();
 })
@@ -282,7 +239,7 @@ btnNext.addEventListener('click', ()=>{
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
 
-document.addEventListener('mouseup', event => {
+document.addEventListener('mouseup', () => {
     if (window.getSelection().toString().length) {
         let selection = window.getSelection().getRangeAt(0);
         let selectedText = selection.extractContents();
