@@ -176,7 +176,7 @@ formFilter.onsubmit = function (e) {
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 
 let a = document.querySelector('.main__div');
-                                                        // ПОКИ НЕ ПІДДАЄТЬСЯ МОЄМУ НАПОРУ)
+// ПОКИ НЕ ПІДДАЄТЬСЯ МОЄМУ НАПОРУ)
 // function rec(domElement) {
 //     if (document.querySelectorAll('.btn1').length === 0) {
 //         let btnPrev = document.createElement('button');
@@ -228,16 +228,19 @@ document.body.appendChild(sliderBox);
 sliderBox.appendChild(slider);
 slider.appendChild(sliderTrack);
 
+
 for (let i = 1; i <= 3; i++) {
     let slide = document.createElement('div');
     slide.classList.add('slider__item');
     let img = document.createElement('img');
+    img.classList.add('img');
     img.id = 'img-' + i;
     slide.appendChild(img);
     sliderTrack.appendChild(slide);
 }
 
 let img1 = document.getElementById('img-1');
+img1.classList.add('active__img');
 img1.src = 'img/images.jpg';
 let img2 = document.getElementById('img-2');
 img2.src = 'img/images1.jpg';
@@ -254,20 +257,26 @@ btnPrev.classList.add('btn__prev');
 
 sliderBox.append(btnPrev, btnNext);
 
-//
+let current = 0;
+let images = document.querySelectorAll('.img');
 
-let offset = 0;
+function carousel() {
+    for (const image of images) {
+        image.classList.add('transparent');
+    }
+    images[current].classList.remove('transparent');
+}
 
-btnNext.addEventListener('click', function () {
-    offset += 250;
-    offset > 500 ? offset = 0 : false;
-    sliderTrack.style.left = -offset + 'px';
-})
+carousel();
 
-btnPrev.addEventListener('click', function () {
-    offset -= 250;
-    offset < 0 ? offset = 500 : false;
-    sliderTrack.style.left = -offset + 'px';
+btnPrev.addEventListener('click', () => {
+    current - 1 === -1 ? current = images.length - 1 : current--;
+    carousel();
+});
+
+btnNext.addEventListener('click', ()=>{
+    current + 1 === images.length ? current = 0 : current++;
+    carousel();
 })
 
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
@@ -287,4 +296,3 @@ document.addEventListener('mouseup', event => {
 })
 
 document.write('<hr>');
-
