@@ -42,15 +42,15 @@ function navOnPage(domParentElement) {
     btnDown.addEventListener('click', () => {
         step(domParentElement);
         childBox.forEach(child => child.style.backgroundColor = '#F6DB5EEF');
-        current + 1 === childBox.length ? current = 0 : current++;
         childBox[current].style.backgroundColor = '#0076CCFF';
+        current + 1 === childBox.length ? current = 0 : current++;
     })
 
     btnUp.addEventListener('click', () => {
         step(domParentElement);
         childBox.forEach(child => child.style.backgroundColor = '#F6DB5EEF');
         current - 1 === -1 ? current = childBox.length - 1 : current--;
-        childBox[current - 1].style.backgroundColor = '#0076CCFF';
+        childBox[current].style.backgroundColor = '#0076CCFF';
     })
 }
 
