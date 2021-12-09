@@ -4,10 +4,11 @@
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 
-let wrapper = document.getElementsByClassName('wrapper');
-let header = document.getElementsByTagName('header');
-let main = document.getElementsByTagName('main');
-let footer = document.getElementsByTagName('footer');
+let wrapper = document.getElementsByClassName('wrapper')[0];
+let header = document.getElementsByTagName('header')[0];
+let main = document.getElementsByTagName('main')[0];
+let footer = document.getElementsByTagName('footer')[0];
+let ul = document.getElementsByTagName('ul')[0];
 
 function navOnPage(domParentElement) {
 
@@ -39,19 +40,15 @@ function navOnPage(domParentElement) {
 
     let current = 0;
     btnDown.addEventListener('click', () => {
-        step(domParentElement[0]);
-        for (let i = 0; i < childBox.length; i++) {
-            childBox[i].style.backgroundColor = '#F6DB5EEF';
-        }
+        step(domParentElement);
+        childBox.forEach(child => child.style.backgroundColor = '#F6DB5EEF');
         current + 1 === childBox.length ? current = 0 : current++;
         childBox[current].style.backgroundColor = '#0076CCFF';
     })
 
     btnUp.addEventListener('click', () => {
-        step(domParentElement[0]);
-        for (let i = 0; i < childBox.length; i++) {
-            childBox[i].style.backgroundColor = '#F6DB5EEF';
-        }
+        step(domParentElement);
+        childBox.forEach(child => child.style.backgroundColor = '#F6DB5EEF');
         current - 1 === -1 ? current = childBox.length - 1 : current--;
         childBox[current - 1].style.backgroundColor = '#0076CCFF';
     })
