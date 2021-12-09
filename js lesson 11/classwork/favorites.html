@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAVORITES</title>
+</head>
+<body>
+
+<script>
+    let favoritesKey = 'favorites';
+    let users = JSON.parse(localStorage.getItem(favoritesKey));
+
+    let userList = document.createElement('div');
+    userList.classList.add('user__list');
+    userList.style.display = 'flex';
+    userList.style.flexWrap = 'wrap';
+    document.body.appendChild(userList);
+
+    let i = 1;
+    users.forEach(item => {
+        let userItem = document.createElement('div');
+        userItem.style.border = '1px solid black';
+        userItem.style.borderRadius = '10px';
+        userItem.style.padding = '10px';
+        userItem.style.margin = '10px auto';
+        userItem.style.flex = '0 1 30%';
+        userItem.style.width = 'fit-content';
+        userItem.classList.add('user__item');
+        userItem.id = 'user__' + i;
+        i++;
+
+        let userInfo = document.createElement('p');
+        userInfo.innerHTML = JSON.stringify(item);
+
+
+        userList.appendChild(userItem);
+        userItem.appendChild(userInfo);
+    })
+
+</script>
+</body>
+</html>
