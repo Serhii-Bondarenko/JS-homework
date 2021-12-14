@@ -37,7 +37,7 @@ productsArr.forEach(item => {
         product.remove();
     }
 
-    btn.addEventListener('mousedown', () => {
+    btn.addEventListener('click', () => {
         remove();
     })
 })
